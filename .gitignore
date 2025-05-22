@@ -1,0 +1,13 @@
+# Sistema operacional
+.DS_Store
+
+# Arquivos sensíveis
+.env
+
+# Docker (caso crie arquivos locais)
+docker-compose.override.yml
+*.env.local
+
+# IDEs e editores
+.vscode/
+.idea/
