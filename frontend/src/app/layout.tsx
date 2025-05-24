@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../styles/globals.css";
 import Header from "@/app/_components/Header";
 
 const interSans = Inter({
@@ -19,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
-        className={`${interSans.variable} antialiased`}
+        className={`${interSans.variable} antialiased bg-background`}
       >
         <Header />
         {children}
