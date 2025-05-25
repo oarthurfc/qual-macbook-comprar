@@ -7,6 +7,7 @@
 # Docker (caso crie arquivos locais)
 docker-compose.override.yml
 *.env.local
+docker_cheatsheet.md
 
 # IDEs e editores
 .vscode/
