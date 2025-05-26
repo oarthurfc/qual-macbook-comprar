@@ -1,7 +1,9 @@
+"use server"
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-export default function HeroSection() {
+export default async function HeroSection() {
   return (
     <div className="flex flex-col min-h-screen mb-8 justify-center items-center text-center gap-14">
       <h1 className="text-5xl font-bold max-w-lg bg-gradient-to-r from-[#022640] to-[#5786AB] bg-clip-text text-transparent">

@@ -1,12 +1,24 @@
-export default function HeroSection() {
+"use server"
+
+import FilterTitle from "./FilterTitle";
+import FilterSelects from "./FilterSelects";
+import ImageAndPrice from "./ImageAndPrice";
+import Especifications from "./Especifications";
+import Coments from "./Coments";
+
+export default async function FilterSection() {
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="flex flex-col gap-2 text-center">
-        <h2 className="text-3xl font-bold text-secondary">Busca com filtros</h2>
-        <p className="text-foreground text-lg font-semibold max-w-md">
-          Preencha alguns campos para encontrar o preço ideal.
-        </p>
+    <>
+      <FilterTitle />
+      <div className="flex flex-col gap-20 mt-11">
+        <FilterSelects />
+        <ImageAndPrice />
+        <div className="flex items-center justify-between">
+          <Especifications />
+
+          <Coments />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
