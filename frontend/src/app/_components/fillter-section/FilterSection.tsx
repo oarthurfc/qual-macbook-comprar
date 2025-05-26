@@ -8,7 +8,7 @@ import Coments from "./Coments";
 
 export default async function FilterSection() {
   return (
-    <>
+    <div className="max-w-5xl mx-auto">
       <FilterTitle />
       <div className="flex flex-col gap-20 mt-11">
         <FilterSelects />
@@ -19,6 +19,6 @@ export default async function FilterSection() {
           <Coments />
         </div>
       </div>
-    </>
+    </div>
   );
 }

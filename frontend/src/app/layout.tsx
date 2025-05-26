@@ -24,9 +24,7 @@ export default function RootLayout({
         className={`${interSans.variable} antialiased bg-gradient-to-b from-[#D4EAF6] via-[#FAFAFA] to-white`}
       >
         <Header />
-        <main className="max-w-5xl mx-auto">
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );
