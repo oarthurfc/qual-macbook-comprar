@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <main className="flex flex-col min-h-screen mb-8 justify-center items-center text-center gap-14">
+    <div className="flex flex-col min-h-screen mb-8 justify-center items-center text-center gap-14">
       <h1 className="text-5xl font-bold max-w-lg bg-gradient-to-r from-[#022640] to-[#5786AB] bg-clip-text text-transparent">
         Qual MacBook comprar em 2025?
       </h1>
@@ -14,6 +14,6 @@ export default function HeroSection() {
         </p>
         <Button>Começar agora</Button>
       </div>
-    </main>
+    </div>
   );
 }
