@@ -1,17 +1,17 @@
-"use server"
+"use server";
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default async function HeroSection() {
   return (
-    <main className="flex flex-col justify-center items-center gap-14 max-w-5xl mx-auto min-h-screen text-center pb-10">
-      <h1 className="max-w-lg text-5xl font-bold bg-gradient-to-r from-[#022640] to-[#5786AB] bg-clip-text text-transparent">
+    <main className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center gap-14 pb-10 text-center">
+      <h1 className="max-w-lg bg-gradient-to-r from-[#022640] to-[#5786AB] bg-clip-text text-5xl font-bold text-transparent">
         Qual MacBook comprar em 2025?
       </h1>
       <Image src="/hero-macbook.png" alt="Logo" width={694} height={332} />
-      <div className="flex flex-col max-w-md items-center gap-4">
-        <p className="text-foreground text-xl font-semibold gap-4">
+      <div className="flex max-w-md flex-col items-center gap-4">
+        <p className="gap-4 text-xl font-semibold text-foreground">
           Descubra a faixa de preço ideal com base em modelo, tamanho da tela e ano.
         </p>
         <Button>Começar agora</Button>

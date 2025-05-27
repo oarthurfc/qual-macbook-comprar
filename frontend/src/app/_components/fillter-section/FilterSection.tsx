@@ -1,4 +1,4 @@
-"use server"
+"use server";
 
 import FilterTitle from "./FilterTitle";
 import FilterSelects from "./FilterSelects";
@@ -8,9 +8,9 @@ import Coments from "./Coments";
 
 export default async function FilterSection() {
   return (
-    <div className="max-w-5xl mx-auto pb-20">
+    <div className="mx-auto max-w-5xl pb-20">
       <FilterTitle />
-      <div className="flex flex-col gap-20 mt-11">
+      <div className="mt-11 flex flex-col gap-20">
         <FilterSelects />
         <ImageAndPrice />
         <div className="flex items-center justify-between">

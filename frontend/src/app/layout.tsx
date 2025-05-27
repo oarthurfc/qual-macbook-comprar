@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${interSans.variable} antialiased scroll-smooth bg-gradient-to-b from-[#D4EAF6] via-[#FAFAFA] to-white`}
+        className={`${interSans.variable} scroll-smooth bg-gradient-to-b from-[#D4EAF6] via-[#FAFAFA] to-white antialiased`}
       >
         <Header />
         {children}

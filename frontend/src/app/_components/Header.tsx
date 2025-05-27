@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="flex justify-around mx-auto py-3 bg-white">
-      <div className="flex justify-between items-center max-w-5xl w-full">
+    <div className="mx-auto flex justify-around bg-white py-3">
+      <div className="flex w-full max-w-5xl items-center justify-between">
         <h4 className="text-sm font-semibold">QualMacBookComprar</h4>
         <nav>
           <ul className="flex flex-row gap-4">
