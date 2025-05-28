@@ -13,7 +13,7 @@ export default function FilterSelects() {
     <div className="flex justify-between gap-5">
       <Select>
         <SelectTrigger>
-          <SelectValue placeholder="Theme" />
+          <SelectValue placeholder="Modelo do MacBook" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="light">Light</SelectItem>
@@ -24,7 +24,7 @@ export default function FilterSelects() {
 
       <Select>
         <SelectTrigger>
-          <SelectValue placeholder="Theme" />
+          <SelectValue placeholder="Tamanho da Tela" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="light">Light</SelectItem>
@@ -35,7 +35,7 @@ export default function FilterSelects() {
 
       <Select>
         <SelectTrigger>
-          <SelectValue placeholder="Theme" />
+          <SelectValue placeholder="Ano do MacBook" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="light">Light</SelectItem>
@@ -46,7 +46,7 @@ export default function FilterSelects() {
 
       <Select>
         <SelectTrigger>
-          <SelectValue placeholder="Theme" />
+          <SelectValue placeholder="Processador" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="light">Light</SelectItem>

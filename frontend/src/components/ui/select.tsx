@@ -19,14 +19,23 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-muted-foreground [&>span]:line-clamp-1",
+      "flex w-full items-center justify-between rounded-sm border border-border bg-white p-3 text-lg font-semibold text-muted-foreground [&:not([data-placeholder])]:text-secondary",
+      "hover:border-muted-foreground focus:outline-none focus:ring-2 focus:ring-sky-200 focus:ring-offset-0",
+      "disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-secondary [&>span]:line-clamp-1",
       className
     )}
     {...props}
   >
-    {children}
+    <span
+      className="relative flex-1 overflow-hidden whitespace-nowrap text-left"
+      style={{ textOverflow: "clip" }}
+    >
+      {children}
+      {/* Gradiente para fade effect */}
+      <span className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent" />
+    </span>
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 opacity-50" />
+      <ChevronDown className="ml-2 h-4 w-4 flex-shrink-0 text-[#0071e3]" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));
