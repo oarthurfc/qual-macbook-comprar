@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function RelationedProducts() {
   return (
@@ -11,7 +12,10 @@ export default function RelationedProducts() {
         <h2 className="text-5xl font-bold text-secondary">Produtos Relacionados</h2>
 
         <div className="grid grid-cols-2 gap-5">
-          <div className="flex flex-col items-center justify-between gap-9 rounded-3xl bg-white p-8">
+          <Link
+            href={"https://google.com"}
+            className="flex flex-col items-center justify-between gap-9 rounded-2xl bg-white p-8 shadow-soft transition-transform duration-300 ease-in-out hover:scale-[1.01]"
+          >
             <div className="flex flex-col gap-2">
               <span className="text-lg font-semibold">CATEGORIA</span>
               <h4 className="text-3xl font-bold text-secondary">
@@ -28,8 +32,11 @@ export default function RelationedProducts() {
               Comprar com desconto
               <ArrowUpRight />
             </Button>
-          </div>
-          <div className="flex flex-col items-center gap-9 rounded-3xl bg-white p-8">
+          </Link>
+          <Link
+            href={"https://google.com"}
+            className="flex flex-col items-center justify-between gap-9 rounded-2xl bg-white p-8 shadow-soft transition-transform duration-300 ease-in-out hover:scale-[1.01]"
+          >
             <div className="flex flex-col gap-2">
               <span className="text-lg font-semibold">CATEGORIA</span>
               <h4 className="text-3xl font-bold text-secondary">
@@ -46,7 +53,7 @@ export default function RelationedProducts() {
               Comprar com desconto
               <ArrowUpRight />
             </Button>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
