@@ -1,6 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,46 +14,51 @@ export default function RelationedProducts() {
 
         <div className="grid grid-cols-2 gap-5">
           <Link
-            href={"https://google.com"}
-            className="flex flex-col items-center justify-between gap-9 rounded-2xl bg-white p-8 shadow-soft transition-transform duration-300 ease-in-out hover:scale-[1.01]"
+            href="https://google.com"
+            className="flex min-h-[550px] flex-col items-center justify-between gap-9 rounded-2xl bg-white p-8 shadow-soft transition-transform duration-300 ease-in-out hover:scale-[1.01]"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1">
               <span className="text-lg font-semibold">CATEGORIA</span>
               <h4 className="text-3xl font-bold text-secondary">
                 Bateria Compatível Com Macbook Air 13" (2009)
               </h4>
             </div>
+
             <Image
-              src={"/hero-macbook.png"}
+              src="/hero-macbook.png"
               width={310}
               height={310}
-              alt={"Imagem do produto relacionado"}
+              alt="Imagem do produto relacionado"
             />
-            <Button>
+
+            <div className={cn(buttonVariants({ variant: "default", size: "default" }))}>
               Comprar com desconto
               <ArrowUpRight />
-            </Button>
+            </div>
           </Link>
+
           <Link
-            href={"https://google.com"}
-            className="flex flex-col items-center justify-between gap-9 rounded-2xl bg-white p-8 shadow-soft transition-transform duration-300 ease-in-out hover:scale-[1.01]"
+            href="https://google.com"
+            className="flex min-h-[550px] flex-col items-center justify-between gap-9 rounded-2xl bg-white p-8 shadow-soft transition-transform duration-300 ease-in-out hover:scale-[1.01]"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1">
               <span className="text-lg font-semibold">CATEGORIA</span>
               <h4 className="text-3xl font-bold text-secondary">
                 Bateria Compatível Com Macbook Air 13" (2009)
               </h4>
             </div>
+
             <Image
-              src={"/image-2.png"}
-              width={309}
-              height={308}
-              alt={"Imagem do produto relacionado"}
+              src="/image-2.png"
+              width={310}
+              height={310}
+              alt="Imagem do produto relacionado"
             />
-            <Button>
+
+            <div className={cn(buttonVariants({ variant: "default", size: "default" }))}>
               Comprar com desconto
               <ArrowUpRight />
-            </Button>
+            </div>
           </Link>
         </div>
       </div>
