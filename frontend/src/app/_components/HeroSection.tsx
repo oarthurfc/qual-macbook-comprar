@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default async function HeroSection() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center gap-14 pb-10 text-center">
+    <main className="mx-auto flex min-h-screen flex-col items-center justify-center gap-14 bg-gradient-to-b from-[#D4EAF6] via-[#FAFAFA] to-white pb-10 text-center">
       <h1 className="max-w-lg bg-gradient-to-r from-[#022640] to-[#5786AB] bg-clip-text text-5xl font-bold text-transparent">
         Qual MacBook comprar em 2025?
       </h1>
