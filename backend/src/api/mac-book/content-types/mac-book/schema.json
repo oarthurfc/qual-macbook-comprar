@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mac_books",
+  "info": {
+    "singularName": "mac-book",
+    "pluralName": "mac-books",
+    "displayName": "MacBook",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "screen_size": {
+      "type": "integer",
+      "required": true
+    },
+    "year": {
+      "type": "integer",
+      "required": true
+    },
+    "ram_memory": {
+      "type": "integer"
+    },
+    "storage": {
+      "type": "integer"
+    },
+    "price_min": {
+      "type": "decimal",
+      "required": true
+    },
+    "price_max": {
+      "type": "decimal",
+      "required": true
+    },
+    "search_key": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "model": {
+      "type": "string",
+      "required": true
+    },
+    "processor": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

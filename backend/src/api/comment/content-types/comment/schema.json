@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comments",
+  "info": {
+    "singularName": "comment",
+    "pluralName": "comments",
+    "displayName": "Comment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "content": {
+      "type": "text",
+      "required": true
+    },
+    "rating": {
+      "type": "integer",
+      "max": 5,
+      "min": 0
+    },
+    "macbook": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mac-book.mac-book"
+    },
+    "search_key": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}
