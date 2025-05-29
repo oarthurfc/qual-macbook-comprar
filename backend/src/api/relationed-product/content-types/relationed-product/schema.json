@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "relationed_products",
+  "info": {
+    "singularName": "relationed-product",
+    "pluralName": "relationed-products",
+    "displayName": "RelationedProduct",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "affiliate_url": {
+      "type": "string",
+      "required": true
+    },
+    "macbooks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mac-book.mac-book",
+      "mappedBy": "relationed_product"
+    }
+  }
+}

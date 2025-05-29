@@ -441,9 +441,12 @@ export interface ApiMacBookMacBook extends Struct.CollectionTypeSchema {
     processor: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     ram_memory: Schema.Attribute.Integer;
+    relationed_product: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::relationed-product.relationed-product'
+    >;
     screen_size: Schema.Attribute.Integer & Schema.Attribute.Required;
     search_key: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.Private &
       Schema.Attribute.Unique;
     storage: Schema.Attribute.Integer;
@@ -451,6 +454,42 @@ export interface ApiMacBookMacBook extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     year: Schema.Attribute.Integer & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiRelationedProductRelationedProduct
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'relationed_products';
+  info: {
+    description: '';
+    displayName: 'RelationedProduct';
+    pluralName: 'relationed-products';
+    singularName: 'relationed-product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    affiliate_url: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::relationed-product.relationed-product'
+    > &
+      Schema.Attribute.Private;
+    macbooks: Schema.Attribute.Relation<'oneToMany', 'api::mac-book.mac-book'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -964,6 +1003,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::comment.comment': ApiCommentComment;
       'api::mac-book.mac-book': ApiMacBookMacBook;
+      'api::relationed-product.relationed-product': ApiRelationedProductRelationedProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

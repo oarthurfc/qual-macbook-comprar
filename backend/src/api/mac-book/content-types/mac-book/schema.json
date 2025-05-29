@@ -11,12 +11,20 @@
     "draftAndPublish": true
   },
   "attributes": {
+    "model": {
+      "type": "string",
+      "required": true
+    },
     "screen_size": {
       "type": "integer",
       "required": true
     },
     "year": {
       "type": "integer",
+      "required": true
+    },
+    "processor": {
+      "type": "string",
       "required": true
     },
     "ram_memory": {
@@ -35,17 +43,15 @@
     },
     "search_key": {
       "type": "string",
-      "required": true,
+      "required": false,
       "unique": true,
       "private": true
     },
-    "model": {
-      "type": "string",
-      "required": true
-    },
-    "processor": {
-      "type": "string",
-      "required": true
+    "relationed_product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::relationed-product.relationed-product",
+      "inversedBy": "macbooks"
     }
   }
 }
