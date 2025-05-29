@@ -27,7 +27,9 @@
     },
     "search_key": {
       "type": "string",
-      "unique": true
+      "unique": true,
+      "required": false,
+      "private": true
     }
   }
 }

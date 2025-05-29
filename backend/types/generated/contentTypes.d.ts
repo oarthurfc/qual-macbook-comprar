@@ -405,7 +405,9 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
         },
         number
       >;
-    search_key: Schema.Attribute.String & Schema.Attribute.Unique;
+    search_key: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -442,6 +444,7 @@ export interface ApiMacBookMacBook extends Struct.CollectionTypeSchema {
     screen_size: Schema.Attribute.Integer & Schema.Attribute.Required;
     search_key: Schema.Attribute.String &
       Schema.Attribute.Required &
+      Schema.Attribute.Private &
       Schema.Attribute.Unique;
     storage: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;

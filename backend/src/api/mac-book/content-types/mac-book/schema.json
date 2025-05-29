@@ -36,7 +36,8 @@
     "search_key": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "private": true
     },
     "model": {
       "type": "string",
