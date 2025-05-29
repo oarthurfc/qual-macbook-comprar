@@ -397,14 +397,6 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     macbook: Schema.Attribute.Relation<'oneToOne', 'api::mac-book.mac-book'>;
     publishedAt: Schema.Attribute.DateTime;
-    rating: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 5;
-          min: 0;
-        },
-        number
-      >;
     search_key: Schema.Attribute.String &
       Schema.Attribute.Private &
       Schema.Attribute.Unique;
