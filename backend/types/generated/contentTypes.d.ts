@@ -395,10 +395,48 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
       'api::comment.comment'
     > &
       Schema.Attribute.Private;
-    macbook: Schema.Attribute.Relation<'oneToOne', 'api::mac-book.mac-book'>;
     publishedAt: Schema.Attribute.DateTime;
     search_key: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.Private &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMacBookConditionMacBookCondition
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'mac_book_conditions';
+  info: {
+    description: '';
+    displayName: 'MacBookCondition';
+    pluralName: 'mac-book-conditions';
+    singularName: 'mac-book-condition';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    affiliate_url: Schema.Attribute.String;
+    condition: Schema.Attribute.Enumeration<['new', 'semi_new']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'semi_new'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mac-book-condition.mac-book-condition'
+    > &
+      Schema.Attribute.Private;
+    price_max: Schema.Attribute.Decimal;
+    price_min: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    search_key: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -418,30 +456,56 @@ export interface ApiMacBookMacBook extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    comment: Schema.Attribute.Relation<'oneToOne', 'api::comment.comment'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::mac-book.mac-book'
     > &
       Schema.Attribute.Private;
+    macbook_conditions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mac-book-condition.mac-book-condition'
+    >;
     model: Schema.Attribute.String & Schema.Attribute.Required;
-    price_max: Schema.Attribute.Decimal & Schema.Attribute.Required;
-    price_min: Schema.Attribute.Decimal & Schema.Attribute.Required;
     processor: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    ram_memory: Schema.Attribute.Integer;
-    relationed_product: Schema.Attribute.Relation<
-      'manyToOne',
+    ram_memory: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    relationed_products: Schema.Attribute.Relation<
+      'oneToMany',
       'api::relationed-product.relationed-product'
     >;
-    screen_size: Schema.Attribute.Integer & Schema.Attribute.Required;
+    screen_size: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
     search_key: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.Private &
       Schema.Attribute.Unique;
-    storage: Schema.Attribute.Integer;
+    storage: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -466,19 +530,15 @@ export interface ApiRelationedProductRelationedProduct
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::relationed-product.relationed-product'
     > &
       Schema.Attribute.Private;
-    macbooks: Schema.Attribute.Relation<'oneToMany', 'api::mac-book.mac-book'>;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -994,6 +1054,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::comment.comment': ApiCommentComment;
+      'api::mac-book-condition.mac-book-condition': ApiMacBookConditionMacBookCondition;
       'api::mac-book.mac-book': ApiMacBookMacBook;
       'api::relationed-product.relationed-product': ApiRelationedProductRelationedProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;

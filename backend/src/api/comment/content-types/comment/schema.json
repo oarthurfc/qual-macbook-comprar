@@ -15,15 +15,10 @@
       "type": "text",
       "required": true
     },
-    "macbook": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::mac-book.mac-book"
-    },
     "search_key": {
       "type": "string",
       "unique": true,
-      "required": false,
+      "required": true,
       "private": true
     }
   }

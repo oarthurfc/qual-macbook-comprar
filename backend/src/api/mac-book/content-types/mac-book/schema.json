@@ -15,9 +15,18 @@
       "type": "string",
       "required": true
     },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "screen_size": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "min": 0
     },
     "year": {
       "type": "integer",
@@ -28,30 +37,35 @@
       "required": true
     },
     "ram_memory": {
-      "type": "integer"
+      "type": "integer",
+      "required": true,
+      "min": 0
     },
     "storage": {
-      "type": "integer"
-    },
-    "price_min": {
-      "type": "decimal",
-      "required": true
-    },
-    "price_max": {
-      "type": "decimal",
-      "required": true
+      "type": "integer",
+      "required": true,
+      "min": 0
     },
     "search_key": {
       "type": "string",
-      "required": false,
+      "required": true,
       "unique": true,
       "private": true
     },
-    "relationed_product": {
+    "relationed_products": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::relationed-product.relationed-product",
-      "inversedBy": "macbooks"
+      "relation": "oneToMany",
+      "target": "api::relationed-product.relationed-product"
+    },
+    "macbook_conditions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mac-book-condition.mac-book-condition"
+    },
+    "comment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::comment.comment"
     }
   }
 }

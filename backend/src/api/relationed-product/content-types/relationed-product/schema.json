@@ -12,28 +12,20 @@
   },
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image": {
       "type": "media",
-      "multiple": true,
-      "required": false,
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "affiliate_url": {
       "type": "string",
       "required": true
-    },
-    "macbooks": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::mac-book.mac-book",
-      "mappedBy": "relationed_product"
     }
   }
 }

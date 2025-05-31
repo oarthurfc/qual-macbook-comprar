@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mac_book_conditions",
+  "info": {
+    "singularName": "mac-book-condition",
+    "pluralName": "mac-book-conditions",
+    "displayName": "MacBookCondition",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "semi_new"
+      ],
+      "required": true,
+      "default": "semi_new"
+    },
+    "price_min": {
+      "type": "decimal",
+      "required": true
+    },
+    "price_max": {
+      "type": "decimal"
+    },
+    "search_key": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "affiliate_url": {
+      "type": "string"
+    }
+  }
+}
