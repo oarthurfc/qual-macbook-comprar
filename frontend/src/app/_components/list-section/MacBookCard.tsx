@@ -25,13 +25,13 @@ export default function MacBookCard({ macBooks }: { macBooks: { data: MacBook[] 
           return (
             <div
               key={macBook.id}
-              className="flex flex-col items-center justify-between gap-9 rounded-2xl bg-white p-8 shadow-soft transition-transform duration-300 ease-in-out hover:scale-[1.01]"
+              className="flex min-h-[480px] flex-col items-center justify-between gap-9 rounded-2xl bg-white p-8 shadow-soft transition-transform duration-300 ease-in-out hover:scale-[1.01]"
             >
               <div className="my-auto flex">
                 <Image
                   src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${macBook.image.url}`}
-                  width={240}
-                  height={240}
+                  width={200}
+                  height={200}
                   alt={macBook.image.alternativeText || "Imagem do MacBook"}
                 />
               </div>
