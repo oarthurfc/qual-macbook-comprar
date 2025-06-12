@@ -499,7 +499,6 @@ export interface ApiMacBookMacBook extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private &
       Schema.Attribute.Unique;
     storage: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
           min: 0;
