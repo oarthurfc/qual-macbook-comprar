@@ -1,9 +1,25 @@
-"use server";
+"use client";
 
+import { useMacbookFilter } from "@/contexts/MacBookFilterContext";
 import { BadgeCheck } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
-export default async function Coments() {
+export default function Coments() {
+  const { filteredMacbooks } = useMacbookFilter();
+  const macbook = filteredMacbooks[0];
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const content = macbook?.comment?.content;
+  const MAX_LENGTH = 150;
+  const isLongText = content && content.length > MAX_LENGTH;
+  const displayText = isExpanded ? content : content?.slice(0, MAX_LENGTH) + "...";
+
+  if (!content) {
+    return null;
+  }
+
   return (
     <div className="flex w-1/2 flex-col gap-3 pl-[10px]">
       <div className="flex gap-3">
@@ -22,14 +38,18 @@ export default async function Coments() {
           <span className="-mt-1 font-semibold text-foreground">@vitorbarroso</span>
         </div>
       </div>
-      <p className="text-lg font-semibold text-foreground">
-        É um macbookzinho de 15 anos atrás, tem um design bem atual, fino e com curvas bonitas, mas
-        se trata de um hardware muito defasado. Não dá pra fazer quase nada hoje em dia com ele.
-        <br />
-        <br />
-        Se você busca um macbook para uso leve e casual, recomendaria pegar um já com Core I5, esse
-        aqui tem um uso limitadíssimo hoje em dia...
-      </p>
+      <div>
+        <p className="text-lg font-semibold text-foreground">{displayText}</p>
+        {isLongText && (
+          <Button
+            variant="link"
+            className="mt-1 h-auto p-0 text-secondary"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? "Ver menos" : "Ver mais"}
+          </Button>
+        )}
+      </div>
     </div>
   );
 }

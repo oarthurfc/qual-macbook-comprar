@@ -34,14 +34,18 @@ async function getMacBooks() {
     },
   });
 
-  const res = await fetch(url);
-  console.log(url);
+  const res = await fetch(url, {
+    next: {
+      //revalidate: 3600,
+    },
+  });
+
   if (!res.ok) {
     throw new Error("Failed to fetch MacBooks");
   }
 
   const macBooks = await res.json();
-  console.log(macBooks);
+  console.log("MacBooks iniciais", macBooks);
 
   return macBooks;
 }
@@ -52,7 +56,7 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
-      <FilterSection />
+      <FilterSection macBooks={macBooks} />
       <RelationedProducts />
       <ChooseByModel macBooks={macBooks} />
       <Footer />
