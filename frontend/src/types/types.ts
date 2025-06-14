@@ -1,41 +1,8 @@
-// Strapi
-
-export interface StrapiRequest<T> {
-  data: T;
-}
-
-export interface StrapiListResponse<T> {
-  data: StrapiDataItem<T>[];
-  meta: StrapiMeta;
-
-  [x: string]: any;
-}
-
-export interface StrapiResponse<T> {
-  data: StrapiDataItem<T> | null;
-}
-
-export interface StrapiDataItem<T> {
-  id: number;
-  attributes: T;
-}
-
 export interface StrapiContentType {
   id: number;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-}
-
-export interface StrapiMeta {
-  pagination: StrapiPagination;
-}
-
-export interface StrapiPagination {
-  page: number;
-  pageSize: number;
-  pageCount: number;
-  total: number;
 }
 
 export type MacBook = StrapiContentType & {
@@ -54,6 +21,27 @@ export type MacBook = StrapiContentType & {
   relationedProducts?: RelationedProduct[];
   macbook_conditions?: MacBookCondition[];
   comment?: Comment;
+};
+
+export type FilterValues = {
+  model?: string;
+  screenSize?: string; // Mantendo como string para compatibilidade com o Select
+  year?: string; // Mantendo como string para compatibilidade com o Select
+  processor?: string;
+};
+
+export type MacbookFilterContextType = {
+  filters: FilterValues;
+  setFilters: (filters: FilterValues) => void;
+  clearFilters: () => void;
+  filteredMacbooks: MacBook[];
+  allMacbooks: MacBook[];
+  availableOptions: {
+    models: string[];
+    screenSizes: string[];
+    years: string[];
+    processors: string[];
+  };
 };
 
 export type RelationedProduct = StrapiContentType & {
