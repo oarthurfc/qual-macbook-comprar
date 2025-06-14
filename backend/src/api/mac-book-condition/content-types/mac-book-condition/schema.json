@@ -22,10 +22,12 @@
     },
     "price_min": {
       "type": "decimal",
-      "required": true
+      "required": false,
+      "unique": false
     },
     "price_max": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "search_key": {
       "type": "string",

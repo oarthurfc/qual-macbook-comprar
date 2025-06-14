@@ -432,8 +432,8 @@ export interface ApiMacBookConditionMacBookCondition
       'api::mac-book-condition.mac-book-condition'
     > &
       Schema.Attribute.Private;
-    price_max: Schema.Attribute.Decimal;
-    price_min: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    price_max: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    price_min: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     search_key: Schema.Attribute.String &
       Schema.Attribute.Required &
